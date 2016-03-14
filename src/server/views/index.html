@@ -31,5 +31,10 @@
     </div>
 
   </div>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script>
+      window.initMap({{ pins | json | safe }})
+    </script>
 
 {% endblock %}
