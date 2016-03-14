@@ -6,6 +6,7 @@ exports.seed = function(knex, Promise) {
 
     knex('users').insert(
       {
+        user_id: 1,
         username: 'Admin1',
         email: 'millsmcilroy@gmail.com',
         password: 'test',
@@ -16,6 +17,7 @@ exports.seed = function(knex, Promise) {
       }),
     knex('users').insert(
       {
+        user_id: 2,
         username: 'Admin2',
         email: 'jonh1016@gmail.com',
         password: 'test',
@@ -26,29 +28,25 @@ exports.seed = function(knex, Promise) {
       }),
     knex('users').insert(
       {
-        username: 'Admin2',
-        email: 'jonh1016@gmail.com',
+        user_id: 3,
+        username: 'regularUser1',
+        email: 'fake1@faker.com',
         password: 'test',
         drops: 0,
         pickups: 0,
-        admin: true,
+        admin: false,
         banned: false
       }),
     knex('users').insert(
       {
-        name: 'Puget Sound',
-        admin: false
+        user_id: 4,
+        username: 'regularUser2',
+        email: 'fake2@faker.com',
+        password: 'test',
+        drops: 0,
+        pickups: 0,
+        admin: false,
+        banned: false
       })
   );
 };
-
-/*
-    table.increments('user_id');
-    table.string('username');
-    table.string('email');
-    table.string('password');
-    table.integer('drops');
-    table.integer('pickups');
-    table.boolean('admin');//true if admin
-    table.boolean('banned');//true if banned
-  });*/
