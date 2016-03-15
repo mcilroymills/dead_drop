@@ -12,7 +12,7 @@ router.get('/api', function(req, res, next) {
     res.json(pinsList);
   })
   .catch(function(err) {
-    console.log('Error:', err);
+    // console.log('Error:', err);
     return err;
   });
 });
