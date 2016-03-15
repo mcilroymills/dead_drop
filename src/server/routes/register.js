@@ -13,17 +13,18 @@ router.get('/', function(req, res, next) {
   router.post('/', function(req, res, next) {
     var userEmail = req.body.email;
     var userPassword = req.body.password;
-    console.log("Email input:",userEmail);
+    var userName = req.body.username;
     // check if email is unique
     knex('users').where('email', userEmail)
     .then(function(data) {
       // if email is not unique, send an error
       if (data.length) {
-        res.send('Email Already Exists');
+        res.send('Email already exists');
       } else {
           // else insert email and password
           hashedPassword = helpers.hashing(userPassword);
           knex('users').insert({
+          username: userName,
           email: userEmail,
           password: hashedPassword
       }).then(function(data) {
@@ -35,7 +36,6 @@ router.get('/', function(req, res, next) {
     }
     })
     .catch(function(err) {
-      console.log('Something broke, check last catch:', err);
       return next(err);
     });
   });

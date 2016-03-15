@@ -4,12 +4,15 @@ function ensureAuthenticated (req, res, next) {
   // check if user if authenticated
   if(req.user) {
     // if so --> call next()
+    console.log("Woo!", req.user);
     return next();
     // if not --> redirect to login
   } else {
+    console.log("Nope");
     return res.redirect('/login');
   }
 }
+
 
 function loginRedirect (req, res, next) {
   // check if user is authenticated
