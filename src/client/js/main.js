@@ -9,13 +9,6 @@ $(document).ready(function () {
 
 function initMap(pins) {
 
-  //pins = JSON.parse(pins);
-  console.log("in function");
-  console.log(pins);
-
-  //Declare map variables
-  var marker;
-
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -32,15 +25,25 @@ function initMap(pins) {
       zoom: 13
     });
 
-    //Populate map with pins from database
+    //Create markers with pins from database
     for (var i = 0; i < pins.length; i++) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
+      var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
+      '</p></div>';
+      var infowindow = new google.maps.InfoWindow({
+    content:contentString
+  });
 
-      marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
+        infowindow: infowindow
       });
+
+      google.maps.event.addListener(marker, 'click', function () {
+            this.infowindow.open(map, this);
+        });
     }
     //Error function
   },function() {
@@ -78,8 +81,4 @@ function initMap(pins) {
       });
     }
   }
-}
-
-function addPin () {
-
 }
