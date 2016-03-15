@@ -12,9 +12,9 @@ router.get('/home', function(req, res, next) {
   });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'The Login Page' });
-});
+// router.get('/login', function(req, res, next) {
+//   res.render('login', { title: 'The Login Page' });
+// });
 
 router.get('/myaccount', function(req, res, next) {
   res.render('myaccount', { title: 'The My Account Page' });

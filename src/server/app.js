@@ -6,11 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
-
+var cookieSession = require('cookie-session');
+// require('dotenv').load();
 
 // *** routes *** //
 var routes = require('./routes/index.js');
 var pins = require('./routes/pins.js');
+var login = require('./routes/login.js');
 
 
 // *** express instance *** //
@@ -38,6 +40,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 // *** main routes *** //
 app.use('/', routes);
 app.use('/pins', pins);
+app.use('/login', login);
 
 
 // catch 404 and forward to error handler
