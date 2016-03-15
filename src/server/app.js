@@ -14,6 +14,7 @@ var passport = require('./db/lib/auth');
 var routes = require('./routes/index.js');
 var pins = require('./routes/pins.js');
 var login = require('./routes/login.js');
+var register = require('./routes/register.js');
 
 
 // *** express instance *** //
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/', routes);
 app.use('/pins', pins);
 app.use('/login', login);
+app.use('/register', register);
 
 
 // catch 404 and forward to error handler
