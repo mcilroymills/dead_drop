@@ -4,12 +4,24 @@
 
 
 {% block content %}
+    <div class="container">
 
-  <div class="container">
+      <h1>{{ title }}</h1>
 
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+      <div class="row">
+        <form action="/login" method="post">
+          Username:
+          <input type="text" name="username" placeholder="Username">
+          <br><br>
+          Password:
+          <input type="password" name="password" placeholder="Password">
+          <br><br>
+          <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <p>Don't have an account? Sign up <a href="/newaccount">here!</a></p>
+      </div>
 
-  </div>
+    </div>
 
 {% endblock %}
