@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
             console.log('error:', err);
             return next(err);
           } else {
-            return res.redirect('/');
+            return res.render('index', {title: 'Dead Drop'});
           }
         });
       }
