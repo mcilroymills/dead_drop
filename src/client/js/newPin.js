@@ -1,5 +1,6 @@
-//Global map variable
+//Google map object
 var map;
+var onePin = true;
 
 $(document).ready(function () {
   $.getJSON("http://localhost:5000/pins/api", function(json) {
@@ -8,10 +9,6 @@ $(document).ready(function () {
 });
 
 function initMap(pins) {
-
-  //pins = JSON.parse(pins);
-  console.log("in function");
-  console.log(pins);
 
   //Declare map variables
   var marker;
@@ -42,6 +39,11 @@ function initMap(pins) {
         map: map,
       });
     }
+
+    //
+  map.addListener('click', function(event) {
+    addPin(event.latLng);
+  });
     //Error function
   },function() {
       //Client declined to allow current location, center map at enter map at city & county bldg
@@ -80,6 +82,17 @@ function initMap(pins) {
   }
 }
 
-function addPin () {
-
+function addPin (location) {
+  //Only allows one pin to be placed
+  if (onePin) {
+    var pin = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  onePin = false;
+  }
 }
+
+
+
+
