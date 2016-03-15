@@ -1,4 +1,15 @@
 
+$(document).ready(function () {
+  var testArray = [];
+  console.log('sanity check!');
+  $.getJSON("http://localhost:5000/pins/api", function(json) {
+    // $.each(json, function(i, item) {
+    // })
+    console.log("json:",json);
+    // initMap();
+  });
+});
+
 function initMap(pins) {
 
   pins = JSON.parse(pins);
@@ -70,7 +81,3 @@ function initMap(pins) {
     }
   }
 }
-
-
-
-
