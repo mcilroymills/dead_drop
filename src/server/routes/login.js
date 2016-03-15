@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 //route to post login and authenticate with passport when the user clicks submit on the /login page
-  router.post('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     passport.authenticate('local', function(err, user) {
       if (err) {
         console.log('error:', err);

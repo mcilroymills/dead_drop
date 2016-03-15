@@ -1,6 +1,8 @@
 //Google map object
 var map;
+var pin;
 var onePin = true;
+
 
 $(document).ready(function () {
   $.getJSON("http://localhost:5000/pins/api", function(json) {
@@ -9,9 +11,6 @@ $(document).ready(function () {
 });
 
 function initMap(pins) {
-
-  //Declare map variables
-  var marker;
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -29,21 +28,31 @@ function initMap(pins) {
       zoom: 13
     });
 
-    //Populate map with pins from database
+    //Adds event listener to the map for new pins
+    map.addListener('click', function(event) {
+      addPin(event.latLng);
+    });
+
+    //Create markers with pins from database
     for (var i = 0; i < pins.length; i++) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
+      var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
+      '</p></div>';
+      var infowindow = new google.maps.InfoWindow({
+    content:contentString
+  });
 
-      marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
+        infowindow: infowindow
       });
-    }
 
-    //
-  map.addListener('click', function(event) {
-    addPin(event.latLng);
-  });
+      google.maps.event.addListener(marker, 'click', function () {
+            this.infowindow.open(map, this);
+        });
+    }
     //Error function
   },function() {
       //Client declined to allow current location, center map at enter map at city & county bldg
@@ -52,14 +61,30 @@ function initMap(pins) {
       zoom: 13
       });
 
+      //Adds event listener to the map for new pins
+      map.addListener('click', function(event) {
+        addPin(event.latLng);
+      });
+
       //Populate map with pins from database
+      //Create markers with pins from database
       for (var i = 0; i < pins.length; i++) {
         var latitude = parseFloat(pins[i].latitude);
         var longitude = parseFloat(pins[i].longitude);
+        var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
+        '</p></div>';
+        var infowindow = new google.maps.InfoWindow({
+          content:contentString
+        });
 
-        marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: {lat: latitude, lng:longitude},
           map: map,
+          infowindow: infowindow
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            this.infowindow.open(map, this);
         });
       }
     });
@@ -69,15 +94,31 @@ function initMap(pins) {
     center: {lat: 39.739209, lng: -104.990255},
     zoom: 13
     });
-    //Populate map with pins from database
+
+    //Adds event listener to the map for new pins
+    map.addListener('click', function(event) {
+      addPin(event.latLng);
+    });
+
+    //Create markers with pins from database
     for (var i = 0; i < pins.length; i++) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
+      var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
+      '</p></div>';
+      var infowindow = new google.maps.InfoWindow({
+        content:contentString
+      });
 
-      marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
+        infowindow: infowindow
       });
+
+      google.maps.event.addListener(marker, 'click', function () {
+            this.infowindow.open(map, this);
+        });
     }
   }
 }
@@ -85,11 +126,16 @@ function initMap(pins) {
 function addPin (location) {
   //Only allows one pin to be placed
   if (onePin) {
-    var pin = new google.maps.Marker({
+    pin = new google.maps.Marker({
       position: location,
       map: map
     });
   onePin = false;
+
+  google.maps.event.addListener(pin, 'click', function () {
+      this.setMap(null);
+      onePin = true;
+    });
   }
 }
 

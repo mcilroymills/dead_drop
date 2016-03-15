@@ -6,7 +6,6 @@ router.get('/', function(req, res, next) {
     res.render('index');
   });
 
-
 router.get('/api', function(req, res, next) {
   queries.getPins()
   .then(function(pinsList) {
@@ -17,5 +16,7 @@ router.get('/api', function(req, res, next) {
     return err;
   });
 });
+
+
 
 module.exports = router;
