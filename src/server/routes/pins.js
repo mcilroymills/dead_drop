@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var queries = require('../queries');
+var queries = require('../db/queries');
 
 router.get('/', function(req, res, next) {
     res.render('index');
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/api', function(req, res, next) {
-  queries.Pins()
+  queries.getPins()
   .then(function(pinsList) {
     res.json(pinsList);
   })

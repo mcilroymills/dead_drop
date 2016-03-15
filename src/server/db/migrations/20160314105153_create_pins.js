@@ -2,6 +2,9 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('pins', function(table){
     table.increments('pin_id');
+    table.string('pin_title');
+    table.text('pin_description');
+    table.text('pin_image');
     table.decimal('latitude', 12, 9);
     table.decimal('longitude', 12, 9);
     table.boolean('active');

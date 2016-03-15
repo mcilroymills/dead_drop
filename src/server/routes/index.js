@@ -3,9 +3,8 @@ var router = express.Router();
 var queries = require('../db/queries');
 
 router.get('/', function(req, res, next) {
-  queries.getPins().then(function(result){
-    res.render('index', { title: 'The Main (index) Page', pins: JSON.stringify(result) });
-  });
+
+    res.render('index', { title: 'The Main (index) Page'});
 });
 
 router.get('/login', function(req, res, next) {
