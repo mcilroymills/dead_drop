@@ -10,7 +10,6 @@ function Users () {
 passport.use(new LocalStrategy({
    usernameField: 'email'}, function(email, password, done) {
     //does user exist?
-    // console.log('Well. Shit.');
     Users().where('email', email).then(function(data) {
       //email does not exist, return error
       if (!data.length) {
@@ -20,7 +19,6 @@ passport.use(new LocalStrategy({
       //email found but do the passwords match?
       if (helpers.comparePassword(password, user.password)) {
         // passwords match! return user
-        console.log('passwords match!');
         return done(null, user);
       }
       else {
@@ -30,7 +28,6 @@ passport.use(new LocalStrategy({
     })
     .catch(function(err) {
       //issue with SQL/Knex query
-      // console.log('Well. Shit.');
       return done('Incorrect email and/or password.');
     });
   }
@@ -39,7 +36,8 @@ passport.use(new LocalStrategy({
 
 // sets the user to req.user and establishes a session via a cookie
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  console.log(user);
+  done(null, user.user_id);
 });
 
 // used on subsequent requests to update 'req.user' and update session
