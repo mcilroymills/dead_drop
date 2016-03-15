@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
-var cookieSession = require('cookie-session');
+var session = require('express-session');
 var passport = require('./db/lib/auth');
 // require('dotenv').load();
 
@@ -14,6 +14,7 @@ var passport = require('./db/lib/auth');
 var routes = require('./routes/index.js');
 var pins = require('./routes/pins.js');
 var login = require('./routes/login.js');
+var register = require('./routes/register.js');
 
 
 // *** express instance *** //
@@ -35,6 +36,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: process.env.SECRET_KEY || 'change_me',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -45,6 +51,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/', routes);
 app.use('/pins', pins);
 app.use('/login', login);
+app.use('/register', register);
 
 
 // catch 404 and forward to error handler

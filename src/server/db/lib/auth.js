@@ -36,14 +36,14 @@ passport.use(new LocalStrategy({
 
 // sets the user to req.user and establishes a session via a cookie
 passport.serializeUser(function(user, done) {
-  console.log(user);
+  // console.log(user);
   done(null, user.user_id);
 });
 
 // used on subsequent requests to update 'req.user' and update session
 passport.deserializeUser(function(id, done) {
   // find user and return
-  Users().where('id', id)
+  Users().where('user_id', id)
   .then(function(data) {
     return done(null, data[0]);
   })
