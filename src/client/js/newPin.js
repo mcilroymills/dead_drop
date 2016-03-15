@@ -126,6 +126,13 @@ function initMap(pins) {
 function addPin (location) {
   //Only allows one pin to be placed
   if (onePin) {
+    var lat = location.lat;
+    var lng = location.lng;
+
+    //Assign hidden input vals on page to lat & lng
+    $('#latitude').val(lat);
+    $('#longitude').val(lng);
+
     pin = new google.maps.Marker({
       position: location,
       map: map

@@ -1,12 +1,12 @@
 var knex = require('./knex');
 
 module.exports = {
-    //Get all pins
+    //Get all active pins
     getPins: function() {
-        return knex('pins');
+        return knex('pins').where('active', true);
     },
     //Adds a pin to db
-    addPin: function(){
-        return knex('pins');
+    addPin: function(pin){
+        return knex('pins').insert(pin);
     }
 };

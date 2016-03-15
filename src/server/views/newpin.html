@@ -12,7 +12,7 @@
     <div id="map" class="row">
     </div>
     <br>
-    <form>
+    <form action="pins/newpin" method="POST">
       <div class="form-group">
         <label for="pin_title">Title</label>
         <input type="text" class="form-control" id="pin_title" placeholder="Title" name="pin_title" required>
@@ -22,13 +22,18 @@
         <textarea type="text" class="form-control" id="pin_description" placeholder="Description" name="pin_description"></textarea>
       </div>
       <div class="form-group">
+      <input id="latitude" type="hidden" name="latitude" value="">
+      </div>
+      <div class="form-group">
+        <input id="longitude" type="hidden" name="longitude" value="">
+      </div>
+      <div class="form-group">
         <label for="exampleInputFile">Upload Image</label>
         <input type="file" id="exampleInputFile">
       </div>
       <a href="/home"><button type="button" class="btn btn-default">Cancel</button>
       <button type="submit" class="btn btn-default">Submit</button>
   </form>
-
   </div>
   <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
