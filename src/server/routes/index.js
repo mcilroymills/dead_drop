@@ -3,6 +3,10 @@ var router = express.Router();
 var queries = require('../db/queries');
 
 router.get('/', function(req, res, next) {
+    res.render('landing', { title: 'The Landing Page'});
+});
+
+router.get('/home', function(req, res, next) {
   queries.getPins().then(function(result){
     res.render('index', { title: 'The Main (index) Page', pins: JSON.stringify(result) });
   });
@@ -17,7 +21,7 @@ router.get('/myaccount', function(req, res, next) {
 });
 
 router.get('/newaccount', function(req, res, next) {
-  res.render('newaccount', { title: 'The My Account Page' });
+  res.render('newaccount', { title: 'The New Account Page' });
 });
 
 router.get('/editaccount', function(req, res, next) {
