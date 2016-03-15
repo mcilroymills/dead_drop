@@ -39,20 +39,5 @@ if (navigator.geolocation) {
       map: map,
       title: 'Hello World!'
     });
-    for (var i = 0; i < pins.length; i++) {
-      var latitude = parseFloat(pins[i].latitude);
-      var longitude = parseFloat(pins[i].longitude);
-
-      var marker = new google.maps.Marker({
-        position: {lat: latitude, lng:longitude},
-        map: map,
-        title: 'Hello World!'
-      });
-      console.log(latitude);
-      console.log(longitude);
-    }
-  }
-    console.log(latitude);
-    console.log(longitude);
   }
 }
