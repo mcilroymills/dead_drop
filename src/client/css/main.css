@@ -38,15 +38,12 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   height: 100vh;
 }
 
-.flexContainerLand {
-  display: flex;
-  height: 50vh;
+.logo {
+  margin: auto;
+  font-family: 'Impact';
+  font-size: 250px;
 }
 
-.landBox {
-  margin: auto;
-  background-color: rgba(0,0,0,.5)
-}
 
 .box {
   margin: auto;
