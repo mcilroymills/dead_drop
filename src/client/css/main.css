@@ -23,7 +23,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 }
 /*End removing google logo etc.*/
 #landing {
-  background-image: url("../images/landing-ph.jpg");
+  background-image: url("../images/landing-ph.JPG");
   height: 1020px;
   width: 100%;
 }
