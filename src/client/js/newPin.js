@@ -1,8 +1,7 @@
 //Google map object
 var map;
-var pin;
-var onePin = true;
-
+var pin;//The new pin that is added to the map
+var onePin = true;//Only allows one pin to be placed at a time
 
 $(document).ready(function () {
   $.getJSON("http://localhost:5000/pins/api", function(json) {
@@ -43,7 +42,7 @@ function initMap(pins) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
-      '</p></div>';
+      '</p><p>Dropped by ' + pins[i].username + '</p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
@@ -80,7 +79,7 @@ function initMap(pins) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
-      '</p></div>';
+      '</p><p>Dropped by ' + pins[i].username + '</p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
@@ -117,7 +116,7 @@ function initMap(pins) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
-      '</p></div>';
+      '</p><p>Dropped by ' + pins[i].username + '</p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},

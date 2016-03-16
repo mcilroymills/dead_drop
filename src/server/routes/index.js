@@ -34,7 +34,7 @@ router.get('/mypickups', helpers.ensureAuthenticated, function(req, res, next) {
 });
 
 router.get('/newpin', helpers.ensureAuthenticated, function(req, res, next) {
-  res.render('newpin', { title: 'The New Pin Page' });
+  res.render('newpin', { title: 'The New Pin Page', user: req.user});
 });
 
 
