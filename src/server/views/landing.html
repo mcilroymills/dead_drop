@@ -1,20 +1,21 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body id="landing">
 
-{% block title %}{% endblock %}
-
-
-{% block content %}
-
-    <nav class="navbar navbar-default">
-      <ul>
-        <li><a href="/login">Login</a></li>
-        <li class="pull-right"><a href="/register">Sign Up</a></li>
-      </ul>
-    </nav>
-
-    <h1 align="center">{{ title }}</h1>
-
-    <div class="container" id="landing">
+    <div class="flexContainerLand">
+      <div class="landBox">
+        <h1 align="center">{{ title }}</h1>
+      </div>
     </div>
 
-{% endblock %}
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
