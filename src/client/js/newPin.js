@@ -1,3 +1,5 @@
+
+
 //Google map object
 var map;
 var pin;//The new pin that is added to the map

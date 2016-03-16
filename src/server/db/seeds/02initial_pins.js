@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
 
     knex('pins').insert(
       {
-        pin_id: 1,
         pin_title: 'Surprise!',
         pin_description: '',
         pin_image: '',
@@ -21,7 +20,6 @@ exports.seed = function(knex, Promise) {
       }),
     knex('pins').insert(
       {
-        pin_id: 2,
         pin_title: 'Envelope',
         pin_description: 'Look under the bench',
         pin_image: '',
@@ -36,7 +34,6 @@ exports.seed = function(knex, Promise) {
       }),
     knex('pins').insert(
       {
-        pin_id: 3,
         pin_title: 'Backpack',
         pin_description: 'Next to the stoplight',
         pin_image: '',

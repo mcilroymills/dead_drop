@@ -18,6 +18,17 @@ router.get('/api', function(req, res, next) {
   });
 });
 
+router.get('/getpin/:id', function(req, res, next) {
+  queries.getPin(req.params.id)
+  .then(function(pin) {
+    res.json(pin);
+  })
+  .catch(function(err) {
+    console.log('Error:', err);
+    return err;
+  });
+});
+
 router.post('/newpin', function(req, res, next) {
   var newPin = req.body;
 
@@ -37,7 +48,31 @@ router.post('/newpin', function(req, res, next) {
     console.log('Error:', err);
     return err;
   });
+});
 
+router.post('/pickup', function(req, res, next) {
+
+  var pickedupPin = req.body;
+
+  var pin_id = pickedupPin.pin_id;
+  console.log("pinid: ",pin_id);
+  delete pickedupPin.pin_id;//Gets rid of pin_id for the update query
+
+  //Set pin properties
+  pickedupPin.pin_image = '';
+  pickedupPin.active = true;//Stays active for a period of time so users can still see it on map
+  pickedupPin.missing = false;
+  pickedupPin.picked_up = true;//Changes pin color
+  pickedupPin.receiver_id = req.user.user_id;
+
+  queries.pickupPin(pin_id, pickedupPin)
+  .then(function(id) {
+    res.redirect('/home');
+  })
+  .catch(function(err) {
+    console.log('Error:', err);
+    return err;
+  });
 });
 
 module.exports = router;

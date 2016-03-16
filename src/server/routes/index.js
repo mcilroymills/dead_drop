@@ -37,8 +37,8 @@ router.get('/newpin', helpers.ensureAuthenticated, function(req, res, next) {
   res.render('newpin', { title: 'The New Pin Page', user: req.user});
 });
 
-router.get('/pickup', helpers.ensureAuthenticated, function(req, res, next) {
-  res.render('pickupPin', { title: 'Pick up a drop!' });
+router.get('/pickup/:id', helpers.ensureAuthenticated, function(req, res, next) {
+  res.render('pickupPin', { title: 'Pick up a drop!', pin_id: req.params.id, user:req.user});
 });
 
 

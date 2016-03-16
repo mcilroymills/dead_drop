@@ -35,7 +35,7 @@ function initMap(pins) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
-      '</p><p>Dropped by ' + pins[i].username + '</p><a href="/pickup">Pick this up!</a></div>';
+      '</p><p>Dropped by ' + pins[i].username + '</p><a id="pickup" href="/pickup/' + pins[i].pin_id + '">Pick this up!</a></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
@@ -105,6 +105,7 @@ function initMap(pins) {
         position: {lat: latitude, lng:longitude},
         map: map,
         windowContent: contentString
+
       });
       //Add event listener for pin clicks
       google.maps.event.addListener(marker, 'click', function () {
