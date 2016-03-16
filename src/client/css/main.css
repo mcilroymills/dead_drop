@@ -8,7 +8,7 @@ a {
 }
 
 #map {
-  height: 400px;
+  height: 700px;
 }
 
 /*Start removing google logo, terms and conditions*/
@@ -16,18 +16,41 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 a[href^="https://maps.google.com/maps"]{display:none !important}
 
 .gmnoprint a, .gmnoprint span, .gm-style-cc {
-    display:none;
+  display:none;
 }
 .gmnoprint div {
-    background:none !important;
+  background:none !important;
 }
 /*End removing google logo etc.*/
 #landing {
-  background-image: url("../images/landing-ph.JPG");
-  height: 1020px;
+  background-image: url("../images/landing.png");
+  background-size: cover;
+  height: 100%;
   width: 100%;
 }
 
-.navLinks {
-  text-decoration: none;
+.login {
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.flexContainerLand {
+  display: flex;
+  height: 50vh;
+}
+
+.landBox {
+  margin: auto;
+  background-color: rgba(0,0,0,.5)
+}
+
+.box {
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 15px;
 }
