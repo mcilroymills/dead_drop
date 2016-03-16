@@ -4,7 +4,7 @@ var queries = require('../db/queries');
 var helpers = require('../db/lib/helper');
 
 router.get('/', function(req, res, next) {
-    res.render('landing', { title: 'The Landing Page'});
+    res.render('landing', { title: 'Welcome to Dead Drop'});
 });
 
 router.get('/home', helpers.ensureAuthenticated, function(req, res, next) {
