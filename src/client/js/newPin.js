@@ -33,24 +33,28 @@ function initMap(pins) {
       addPin(event.latLng);
     });
 
+    //Create a single infowindow object
+    var infowindow = new google.maps.InfoWindow({
+        content: 'test'
+      });
+
     //Create markers with pins from database
     for (var i = 0; i < pins.length; i++) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
       '</p></div>';
-      var infowindow = new google.maps.InfoWindow({
-    content:contentString
-  });
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
-        infowindow: infowindow
+        windowContent: contentString
       });
-
+      //Add event listener for pin clicks
       google.maps.event.addListener(marker, 'click', function () {
-            this.infowindow.open(map, this);
+            infowindow.setContent(this.windowContent);
+            infowindow.open(map, this);
+
         });
     }
     //Error function
@@ -66,27 +70,30 @@ function initMap(pins) {
         addPin(event.latLng);
       });
 
-      //Populate map with pins from database
-      //Create markers with pins from database
-      for (var i = 0; i < pins.length; i++) {
-        var latitude = parseFloat(pins[i].latitude);
-        var longitude = parseFloat(pins[i].longitude);
-        var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
-        '</p></div>';
-        var infowindow = new google.maps.InfoWindow({
-          content:contentString
-        });
+      //Create a single infowindow object
+      var infowindow = new google.maps.InfoWindow({
+        content: 'test'
+      });
 
-        var marker = new google.maps.Marker({
-          position: {lat: latitude, lng:longitude},
-          map: map,
-          infowindow: infowindow
-        });
+    //Create markers with pins from database
+    for (var i = 0; i < pins.length; i++) {
+      var latitude = parseFloat(pins[i].latitude);
+      var longitude = parseFloat(pins[i].longitude);
+      var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
+      '</p></div>';
 
-        google.maps.event.addListener(marker, 'click', function () {
-            this.infowindow.open(map, this);
+      var marker = new google.maps.Marker({
+        position: {lat: latitude, lng:longitude},
+        map: map,
+        windowContent: contentString
+      });
+      //Add event listener for pin clicks
+      google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(this.windowContent);
+            infowindow.open(map, this);
+
         });
-      }
+    }
     });
   } else {
     // Browser doesn't support Geolocation, center map at city & county bldg
@@ -100,24 +107,28 @@ function initMap(pins) {
       addPin(event.latLng);
     });
 
+    //Create a single infowindow object
+    var infowindow = new google.maps.InfoWindow({
+        content: 'test'
+      });
+
     //Create markers with pins from database
     for (var i = 0; i < pins.length; i++) {
       var latitude = parseFloat(pins[i].latitude);
       var longitude = parseFloat(pins[i].longitude);
       var contentString = '<div id="content"><h3>'+ pins[i].pin_title + '</h3><p>' + pins[i].pin_description +
       '</p></div>';
-      var infowindow = new google.maps.InfoWindow({
-        content:contentString
-      });
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
-        infowindow: infowindow
+        windowContent: contentString
       });
-
+      //Add event listener for pin clicks
       google.maps.event.addListener(marker, 'click', function () {
-            this.infowindow.open(map, this);
+            infowindow.setContent(this.windowContent);
+            infowindow.open(map, this);
+
         });
     }
   }
