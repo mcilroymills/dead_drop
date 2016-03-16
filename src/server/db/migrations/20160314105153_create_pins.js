@@ -12,6 +12,7 @@ exports.up = function(knex, Promise) {
     table.boolean('picked_up');//True if picked up
     table.integer('dropper_id').references('user_id').inTable('users');
     table.integer('receiver_id').references('user_id').inTable('users');
+    table.text('receiver_message');
   });
 };
 

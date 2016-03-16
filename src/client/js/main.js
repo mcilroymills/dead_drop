@@ -2,7 +2,7 @@
 var map;
 
 $(document).ready(function () {
-  $.getJSON("http://localhost:5000/pins/api", function(json) {
+  $.getJSON("/pins/api", function(json) {
     initMap(json);
   });
 });

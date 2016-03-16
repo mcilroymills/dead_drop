@@ -16,7 +16,8 @@ exports.seed = function(knex, Promise) {
         missing: false,
         picked_up: false,
         dropper_id: 2,
-        receiver_id: null
+        receiver_id: null,
+        receiver_message: null
       }),
     knex('pins').insert(
       {
@@ -30,7 +31,8 @@ exports.seed = function(knex, Promise) {
         missing: false,
         picked_up: false,
         dropper_id: 1,
-        receiver_id: null
+        receiver_id: null,
+        receiver_message: null
       }),
     knex('pins').insert(
       {
@@ -44,7 +46,8 @@ exports.seed = function(knex, Promise) {
         missing: false,
         picked_up: false,
         dropper_id: 3,
-        receiver_id: null
+        receiver_id: null,
+        receiver_message: null
       })
   );
 };

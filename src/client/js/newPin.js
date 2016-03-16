@@ -4,7 +4,7 @@ var pin;//The new pin that is added to the map
 var onePin = true;//Only allows one pin to be placed at a time
 
 $(document).ready(function () {
-  $.getJSON("http://localhost:5000/pins/api", function(json) {
+  $.getJSON("/pins/api", function(json) {
     initMap(json);
   });
 });
