@@ -28,6 +28,15 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   width: 100%;
 }
 
-.navLinks {
-  text-decoration: none;
+.login {
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.box {
+  margin: auto;
 }
