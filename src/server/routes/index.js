@@ -16,15 +16,15 @@ router.get('/home', helpers.ensureAuthenticated, function(req, res, next) {
 });
 
 router.get('/mydrops', helpers.ensureAuthenticated, function(req, res, next) {
-  res.render('mydrops', { title: 'The My Drops Page' });
+  res.render('mydrops', { title: 'My Drops' });
 });
 
 router.get('/mypickups', helpers.ensureAuthenticated, function(req, res, next) {
-  res.render('mypickups', { title: 'The My Pick-ups Page' });
+  res.render('mypickups', { title: 'My Pick-ups' });
 });
 
 router.get('/newpin', helpers.ensureAuthenticated, function(req, res, next) {
-  res.render('newpin', { title: 'The New Pin Page', user: req.user});
+  res.render('newpin', { title: 'Add New Pin', user: req.user});
 });
 
 router.get('/pickup/:id', helpers.ensureAuthenticated, function(req, res, next) {

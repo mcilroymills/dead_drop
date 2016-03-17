@@ -9,7 +9,7 @@ var knex = require('../db/knex.js');
 router.get('/', helpers.ensureAuthenticated, function(req, res, next) {
   queries.getUsers().where('user_id', req.user.user_id)
   .then(function(user) {
-    console.log(user);
+    // console.log(user);
     // console.log(req.user.user_id);
     res.render('myaccount', { title: 'My Account', username: user[0].username, email: user[0].email });
   })
@@ -23,7 +23,7 @@ router.get('/', helpers.ensureAuthenticated, function(req, res, next) {
 router.get('/edit', helpers.ensureAuthenticated, function(req, res, next) {
   queries.getUsers().where('user_id', req.user.user_id)
   .then(function(user) {
-    console.log(user);
+    // console.log(user);
     // console.log(req.user.user_id);
     res.render('editaccount', { title: 'Edit Account', username: user[0].username, email: user[0].email });
   })
