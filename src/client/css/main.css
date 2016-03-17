@@ -42,8 +42,8 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   margin: auto;
   font-family: 'Impact';
   font-size: 250px;
+  text-align: center;
 }
-
 
 .box {
   margin: auto;
