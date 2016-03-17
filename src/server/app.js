@@ -6,9 +6,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
-var session = require('express-session');
+var session = require('cookie-session');
 var passport = require('./db/lib/auth');
-// require('dotenv').load();
+var flash = require('connect-flash');
+require('dotenv').load();
 
 // *** routes *** //
 var routes = require('./routes/index.js');
@@ -37,10 +38,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-  secret: process.env.SECRET_KEY || 'change_me',
-  resave: false,
-  saveUninitialized: true
+  name: 'DDsession',
+  keys: ['process.env.key1', 'process.env.key2']
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -7,7 +7,13 @@
 
   <div class="container">
 
-    <h1>{{ title }}</h1>
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.status }}">
+      {{ message.value }}
+      </div>
+      {% endfor %}
+    {% endif %}
 
     <div id="map" class="row">
 

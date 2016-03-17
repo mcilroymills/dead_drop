@@ -42,6 +42,31 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   margin: auto;
   font-family: 'Impact';
   font-size: 250px;
+  text-align: center;
+}
+
+.imgWrapper {
+  height: 150px;
+  width: 150px;
+  margin: 30px auto;
+}
+
+.navLogoWrapper {
+  height: 40px;
+  width: 40px;
+}
+
+.navLogo {
+  width: 100%;
+  margin-top: 3px;
+}
+
+.pinBullshit {
+  margin-left: 10px;
+}
+
+.logoImg {
+  width: 100%;
 }
 
 .box {
@@ -54,7 +79,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 
 .content {
     width: 300px; /* whatever set width */
-    display: inline-block; /* or you could float them */
+    display: inline-block;
     overflow: hidden;
 }
 .content img {

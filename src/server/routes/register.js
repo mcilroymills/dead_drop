@@ -6,7 +6,8 @@ var knex = require('../db/knex.js');
 
 // Route to GET the endpoint /register and display the newaccount.html view
 router.get('/', function(req, res, next) {
-    res.render('newaccount', { title: 'Create An Account!' });
+    var error = req.flash('regError');
+    res.render('newaccount', { title: 'Create An Account!', error: error });
   });
 
 //route to POST a new user to the database
@@ -19,7 +20,8 @@ router.get('/', function(req, res, next) {
     .then(function(data) {
       // if email is not unique, send an error
       if (data.length) {
-        res.send('Email already exists');
+        req.flash('regError', {status: 'danger', value: 'Email has been taken, try another email.'});
+        return res.redirect('/register');
       } else {
           // else insert email and password
           hashedPassword = helpers.hashing(userPassword);
@@ -28,10 +30,12 @@ router.get('/', function(req, res, next) {
           email: userEmail,
           password: hashedPassword
       }).then(function(data) {
+          req.flash('message', {status: 'success', value: 'Your account has been created successfully!'});
           return res.redirect('/login');
       })
       .catch(function(err) {
-          res.send('Something broke, check second to last catch.');
+          req.flash('message', {status: 'danger', value: 'Something went wrong. Shit. Ask someone about something.'});
+          return res.redirect('/login');
         });
     }
     })
