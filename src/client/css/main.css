@@ -44,11 +44,27 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   font-size: 250px;
 }
 
-
 .box {
   margin: auto;
   background-color: white;
   border-radius: 10px;
   padding: 5px 15px;
   box-shadow: 10px 10px 5px grey;
+}
+
+.content {
+    width: 300px; /* whatever set width */
+    display: inline-block; /* or you could float them */
+    overflow: hidden;
+}
+.content img {
+    width: 100%;
+}
+
+.receiver {
+  display:none;
+}
+
+.picked {
+  color:red;
 }

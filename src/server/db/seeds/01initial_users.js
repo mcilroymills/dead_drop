@@ -7,41 +7,41 @@ exports.seed = function(knex, Promise) {
 
     knex('users').insert(
       {
-        username: 'Admin1',
+        username: '5280Smooth',
         email: 'millsmcilroy@gmail.com',
         password: bcrypt.hashSync('test', 10),
-        drops: 0,
-        pickups: 0,
         admin: true,
         banned: false
       }),
     knex('users').insert(
       {
-        username: 'Admin2',
+        username: 'DomingoAyala',
         email: 'jonh1016@gmail.com',
         password: bcrypt.hashSync('test', 10),
-        drops: 0,
-        pickups: 0,
         admin: true,
         banned: false
       }),
     knex('users').insert(
       {
-        username: 'regularUser1',
+        username: 'Funnywiza',
         email: 'fake1@faker.com',
         password: bcrypt.hashSync('test', 10),
-        drops: 0,
-        pickups: 0,
         admin: false,
         banned: false
       }),
     knex('users').insert(
       {
-        username: 'regularUser2',
+        username: '21wavery',
         email: 'fake2@faker.com',
         password: bcrypt.hashSync('test', 10),
-        drops: 0,
-        pickups: 0,
+        admin: false,
+        banned: false
+      }),
+      knex('users').insert(
+      {
+        username: 'Hickenlooper93',
+        email: 'loop@netscape.net',
+        password: bcrypt.hashSync('test', 10),
         admin: false,
         banned: false
       })

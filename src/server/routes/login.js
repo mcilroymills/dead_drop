@@ -11,12 +11,12 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     passport.authenticate('local', function(err, user) {
       if (err) {
-        // console.log('error:', err);
+        console.log('error:', err);
         return next(err);
       } else {
         req.logIn(user, function(err) {
           if (err) {
-            // console.log('error:', err);
+            console.log('error:', err);
             return next(err);
           } else {
             return res.redirect('/home');

@@ -9,8 +9,6 @@ function getPin (pin_id) {
 
 function initMap(pin) {
 
-  console.log(pin);
-
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -35,9 +33,9 @@ function initMap(pin) {
     //Create markers with pin from database
     for (var i = 0; i < pin.length; i++) {
       var latitude = parseFloat(pin[i].latitude);
-      var longitude = parseFloat(pin[i].longitude);
+      var longitude = parseFloat(pin[i]q.longitude);
       var contentString = '<div id="content"><h3>'+ pin[i].pin_title + '</h3><p>' + pin[i].pin_description +
-      '</p><p>Dropped by ' + pin[i].username + '</p></div>';
+      '</p><p>Dropped by <a>' + pin[i].username + '</a></p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},

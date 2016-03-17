@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
     table.integer('dropper_id').references('user_id').inTable('users');
     table.integer('receiver_id').references('user_id').inTable('users');
     table.text('receiver_message');
+    table.text('receiver_image');
   });
 };
 

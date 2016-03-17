@@ -5,8 +5,6 @@ exports.up = function(knex, Promise) {
     table.string('username');
     table.string('email');
     table.string('password');
-    table.integer('drops');
-    table.integer('pickups');
     table.boolean('admin');//true if admin
     table.boolean('banned');//true if banned
   });
