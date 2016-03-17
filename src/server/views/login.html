@@ -23,7 +23,7 @@
         {% endfor %}
       {% endif %}
 
-      <div class="box" id="loginForm">
+      <div class="box login" id="loginForm">
         {% if messages %}
           {% for message in messages %}
           <div class="alert alert-{{ message.status }} error">
@@ -31,14 +31,18 @@
           </div>
           {% endfor %}
         {% endif %}
+        <div class="imgWrapper">
+          <img src="images/deaddrop.jpg" class="logoImg">
+        </div>
+
         <h1 align="center">{{ title }}</h1>
         <form action="/login" method="post" class="login">
-          <input type="text" name="email" placeholder="Username">
+          <input type="text" name="email" placeholder="Email">
           <br><br>
           <input type="password" name="password" placeholder="Password">
           <br><br>
-          <div class="login">
-            <input type="submit" value="Submit" class="btn btn-primary login">
+          <div>
+            <input type="submit" value="Log In" class="btn btn-primary">
           </div>
         </form>
         <br><br>

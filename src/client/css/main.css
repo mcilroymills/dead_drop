@@ -45,6 +45,16 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   text-align: center;
 }
 
+.imgWrapper {
+  height: 150px;
+  width: 150px;
+  margin: 30px auto;
+}
+
+.logoImg {
+  width: 100%;
+}
+
 .box {
   margin: auto;
   background-color: white;
