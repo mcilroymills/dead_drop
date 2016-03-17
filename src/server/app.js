@@ -15,7 +15,7 @@ var routes = require('./routes/index.js');
 var pins = require('./routes/pins.js');
 var login = require('./routes/login.js');
 var register = require('./routes/register.js');
-
+var myaccount = require('./routes/myaccount.js');
 
 // *** express instance *** //
 var app = express();
@@ -52,6 +52,7 @@ app.use('/', routes);
 app.use('/pins', pins);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/myaccount', myaccount);
 
 
 // catch 404 and forward to error handler

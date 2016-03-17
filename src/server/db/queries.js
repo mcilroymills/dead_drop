@@ -16,6 +16,12 @@ module.exports = {
     //Changes a pin to its picked-up state
     pickupPin: function(pin_id, pin){
         return knex('pins').where('pin_id', pin_id).update(pin);
-    }
-
+    },
+    //Gets all users from the db
+    getUsers: function(user){
+        return knex('users');
+    },
+    updateUser: function(user_id, user){
+        return knex('users').where('user_id', user_id).update(user);
+    },
 };

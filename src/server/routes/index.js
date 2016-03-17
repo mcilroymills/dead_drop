@@ -13,14 +13,6 @@ router.get('/home', function(req, res, next) {
   });
 });
 
-router.get('/myaccount', function(req, res, next) {
-  res.render('myaccount', { title: 'The My Account Page' });
-});
-
-router.get('/editaccount', function(req, res, next) {
-  res.render('editaccount', { title: 'The Edit Account Page' });
-});
-
 router.get('/mydrops', function(req, res, next) {
   res.render('mydrops', { title: 'The My Drops Page' });
 });
