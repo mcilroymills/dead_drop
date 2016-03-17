@@ -20,6 +20,12 @@ module.exports = {
     //Returns the username of a the receiver
     getReceiverName: function(receiver_id){
         return knex.select('username').from('users').where('user_id', receiver_id);
-    }
-
+    },
+    //Gets all users from the db
+    getUsers: function(user){
+        return knex('users');
+    },
+    updateUser: function(user_id, user){
+        return knex('users').where('user_id', user_id).update(user);
+    },
 };
