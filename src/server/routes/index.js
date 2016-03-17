@@ -29,6 +29,10 @@ router.get('/pickup/:id', function(req, res, next) {
   res.render('pickupPin', { title: 'Pick up a drop!', pin_id: req.params.id, user:req.user});
 });
 
-
+router.get('/logout', function(req, res, next) {
+  req.session = null;
+  req.logout();
+  res.redirect('/');
+});
 
 module.exports = router;
