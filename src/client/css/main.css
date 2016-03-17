@@ -51,6 +51,20 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
   margin: 30px auto;
 }
 
+.navLogoWrapper {
+  height: 40px;
+  width: 40px;
+}
+
+.navLogo {
+  width: 100%;
+  margin-top: 3px;
+}
+
+.pinBullshit {
+  margin-left: 10px;
+}
+
 .logoImg {
   width: 100%;
 }
