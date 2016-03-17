@@ -4,7 +4,9 @@ var passport = require('../db/lib/auth');
 var helpers = require('../db/lib/helper');
 
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Log In' });
+  var message = req.flash('message');
+  var logout = req.flash('logout');
+  res.render('login', { title: 'Log In', messages: message, logout: logout });
 });
 
 //route to post login and authenticate with passport when the user clicks submit on the /login page

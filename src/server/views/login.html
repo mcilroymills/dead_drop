@@ -14,17 +14,31 @@
         <h1 class="logo">DEAD DROP</h1>
       </div>
 
+
+      {% if logout %}
+        {% for message in logout %}
+        <div class="logoutMessage">
+          <h1 class="logo">{{ message.value }}</h1>
+        </div>
+        {% endfor %}
+      {% endif %}
+
       <div class="box" id="loginForm">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.status }}">
+          {{ message.value }}
+          </div>
+          {% endfor %}
+        {% endif %}
         <h1 align="center">{{ title }}</h1>
-        <form action="/login" method="post">
-          Username:
+        <form action="/login" method="post" class="login">
           <input type="text" name="email" placeholder="Username">
           <br><br>
-          Password:
           <input type="password" name="password" placeholder="Password">
           <br><br>
           <div class="login">
-            <input type="submit" value="Submit" class="btn-primary login">
+            <input type="submit" value="Submit" class="btn btn-primary login">
           </div>
         </form>
         <br><br>
