@@ -1,7 +1,11 @@
 $(document).ready(function () {
-  checkForLogout();
-  hideLogo();
-  hideAndShow();
+  if($('.error').text()) {
+    checkForError();
+  } else {
+    checkForLogout();
+    hideLogo();
+    hideAndShow();
+  }
 });
 
 function hideAndShow () {
@@ -18,4 +22,9 @@ function checkForLogout () {
     $('.logoutMessage').delay(2000).hide(1500);
     $('#loginForm').hide().delay(3000).show(1500);
   }
+}
+
+function checkForError () {
+  $('#deadDropLogo').hide();
+  $('#loginForm').show();
 }
