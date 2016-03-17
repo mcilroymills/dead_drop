@@ -66,11 +66,9 @@ router.post('/pickup', function(req, res, next) {
   var pickedupPin = req.body;
 
   var pin_id = pickedupPin.pin_id;
-  console.log("pinid: ", pin_id);
   delete pickedupPin.pin_id;//Gets rid of pin_id for the update query
 
   //Set pin properties
-  pickedupPin.pin_image = '';
   pickedupPin.active = true;//Stays active for a period of time so users can still see it on map
   pickedupPin.missing = false;
   pickedupPin.picked_up = true;//Changes pin color

@@ -15,14 +15,16 @@ function initMap(pin) {
 
     //Current position
     var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
+      lat: parseFloat(pin[0].latitude),
+      lng: parseFloat(pin[0].longitude)
     };
+
+    console.log(pos);
 
     //Create google map object
     map = new google.maps.Map(document.getElementById('map'), {
       center: pos,
-      zoom: 13
+      zoom: 18
     });
 
     //Create a single infowindow object
@@ -33,9 +35,8 @@ function initMap(pin) {
     //Create markers with pin from database
     for (var i = 0; i < pin.length; i++) {
       var latitude = parseFloat(pin[i].latitude);
-      var longitude = parseFloat(pin[i]q.longitude);
-      var contentString = '<div id="content"><h3>'+ pin[i].pin_title + '</h3><p>' + pin[i].pin_description +
-      '</p><p>Dropped by <a>' + pin[i].username + '</a></p></div>';
+      var longitude = parseFloat(pin[i].longitude);
+      var contentString = '<div class="content"><h3>'+ pin[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pin[i].pin_image + '"><br><br><p><strong>' + pin[i].pin_description + '</strong></p><p>Dropped by <a>' + pin[i].dropper + '</a></p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
@@ -55,7 +56,7 @@ function initMap(pin) {
       //Client declined to allow current location, center map at enter map at city & county bldg
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 39.739209, lng: -104.990255},
-      zoom: 13
+      zoom: 18
       });
 
     //Create a single infowindow object
@@ -87,7 +88,7 @@ function initMap(pin) {
     // Browser doesn't support Geolocation, center map at city & county bldg
     map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 39.739209, lng: -104.990255},
-    zoom: 13
+    zoom: 18
     });
 
     //Create a single infowindow object

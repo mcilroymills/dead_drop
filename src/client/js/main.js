@@ -152,19 +152,19 @@ function setPin (pins, i) {
     //If not picked up, green
     iconImage = '../images/grn_blank.png';
 
-    return '<div class="content"><h3>'+ pins[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p>' + pins[i].pin_description + '</p><p>Dropped by <a>' + pins[i].dropper + '</a></p><a id="pickup" href="/pickup/' + pins[i].pin_id + '">Pick this up!</a></div>';
+    return '<div class="content"><h3>'+ pins[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p><strong>' + pins[i].pin_description + '</strong></p><p>Dropped by <a>' + pins[i].dropper + '</a></p><a id="pickup" href="/pickup/' + pins[i].pin_id + '">Pick this up!</a></div>';
   }
   else if (pins[i].missing){
     //Pin is missing, white
     iconImage = '../images/wht_blank.png';
 
-    return '<div class="content"><h3>'+ pins[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p>' + pins[i].pin_description + '</p><p>Dropped by <a>' + pins[i].dropper + '</a></p><a id="pickup" href="/pickup/' + pins[i].pin_id + '">I found it, pick it up!</a></div>';
+    return '<div class="content"><h3>'+ pins[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p><strong>' + pins[i].pin_description + '</strong></p><p>Dropped by <a>' + pins[i].dropper + '</a></p><a id="pickup" href="/pickup/' + pins[i].pin_id + '">I found it, pick it up!</a></div>';
   }
   else {
     //Pin has been picked up, red
     iconImage = '../images/red_blank.png';
 
-    return '<div class="content flip"><h3>'+ pins[i].pin_title + '</h3><h4 class="picked">Picked up!</h4><div class="dropper"><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p>' + pins[i].pin_description + '</p><p>Dropped by <a>' + pins[i].dropper + '</a></p></div><div class="receiver"><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].receiver_image + '"><br><br><p>' + pins[i].receiver_message + '</p><p>Picked up by <a>' + pins[i].receiver + '</a></p></div></div>';
+    return '<div class="content flip"><h3>'+ pins[i].pin_title + '</h3><h4 class="picked">Picked up!</h4><div class="dropper"><img alt="No image uploaded...be ready for a surprise!" src="' + pins[i].pin_image + '"><br><br><p><strong>' + pins[i].pin_description + '</strong></p><p>Dropped by <a>' + pins[i].dropper + '</a></p></div><div class="receiver"><img alt="No image uploaded...how ungrateful!" src="' + pins[i].receiver_image + '"><br><br><p><strong>' + pins[i].receiver_message + '</strong></p><p>Picked up by <a>' + pins[i].receiver + '</a></p></div></div>';
   }
 
 }

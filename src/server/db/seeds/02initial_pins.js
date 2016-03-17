@@ -81,7 +81,7 @@ exports.seed = function(knex, Promise) {
     }),
     knex('pins').insert(
     {
-        pin_title: 'Briefcase',
+        pin_title: 'Портфель',
         pin_description: 'Это пакет, который вы просили, владимир',
         pin_image: '../images/uploads/briefcase.jpg',
         latitude: '39.723758501',
