@@ -5,9 +5,9 @@ module.exports = {
     getPin: function(pin_id) {
         return knex('pins').innerJoin('users', 'users.user_id', 'pins.dropper_id').where('pin_id', pin_id);
     },
-    //Get all active pins & user info
+    //Get all active pins, user (dropper) & reciever info
     getPins: function() {
-        return knex('pins').innerJoin('users', 'users.user_id', 'pins.dropper_id').where('active', true);
+        return knex.raw('SELECT p.*, u.username AS dropper, u2.username AS receiver FROM pins p INNER JOIN users u ON u.user_id = p.dropper_id LEFT JOIN users u2 ON u2.user_id = p.receiver_id WHERE p.active = true');
     },
     //Adds a pin to db
     addPin: function(pin){
@@ -16,6 +16,10 @@ module.exports = {
     //Changes a pin to its picked-up state
     pickupPin: function(pin_id, pin){
         return knex('pins').where('pin_id', pin_id).update(pin);
+    },
+    //Returns the username of a the receiver
+    getReceiverName: function(receiver_id){
+        return knex.select('username').from('users').where('user_id', receiver_id);
     }
 
 };

@@ -1,5 +1,3 @@
-
-
 //Google map object
 var map;
 var pin;//The new pin that is added to the map
@@ -26,7 +24,7 @@ function initMap(pins) {
     //Create google map object
     map = new google.maps.Map(document.getElementById('map'), {
       center: pos,
-      zoom: 13
+      zoom: 18
     });
 
     //Adds event listener to the map for new pins
@@ -49,7 +47,8 @@ function initMap(pins) {
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
-        windowContent: contentString
+        windowContent: contentString,
+        icon: '../images/grn_blank.png'
       });
       //Add event listener for pin clicks
       google.maps.event.addListener(marker, 'click', function () {

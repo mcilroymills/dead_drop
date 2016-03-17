@@ -42,7 +42,8 @@ function initMap(pin) {
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
         map: map,
-        windowContent: contentString
+        windowContent: contentString,
+        icon: '../images/grn_blank.png'
       });
       //Add event listener for pin clicks
       google.maps.event.addListener(marker, 'click', function () {

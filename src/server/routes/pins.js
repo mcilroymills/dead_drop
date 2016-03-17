@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/api', function(req, res, next) {
   queries.getPins()
-  .then(function(pinsList) {
-    console.log(pinsList);
-    res.json(pinsList);
+  .then(function (pins) {
+    console.log(pins.rows);
+    res.json(pins.rows);
   })
   .catch(function(err) {
     console.log('Error:', err);
@@ -19,6 +19,17 @@ router.get('/api', function(req, res, next) {
 });
 
 router.get('/getpin/:id', function(req, res, next) {
+  queries.getPin(req.params.id)
+  .then(function(pin) {
+    res.json(pin);
+  })
+  .catch(function(err) {
+    console.log('Error:', err);
+    return err;
+  });
+});
+
+router.get('/getusername/:id', function(req, res, next) {
   queries.getPin(req.params.id)
   .then(function(pin) {
     res.json(pin);
@@ -55,7 +66,7 @@ router.post('/pickup', function(req, res, next) {
   var pickedupPin = req.body;
 
   var pin_id = pickedupPin.pin_id;
-  console.log("pinid: ",pin_id);
+  console.log("pinid: ", pin_id);
   delete pickedupPin.pin_id;//Gets rid of pin_id for the update query
 
   //Set pin properties
