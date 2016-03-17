@@ -6,7 +6,7 @@ var queries = require('../db/queries');
 var knex = require('../db/knex.js');
 
 //Route to GET and render user information on the myaccount.html view
-router.get('/', function(req, res, next) {
+router.get('/', helpers.ensureAuthenticated, function(req, res, next) {
   queries.getUsers().where('user_id', req.user.user_id)
   .then(function(user) {
     console.log(user);
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 });
 
 //Route to GET and render user information on the editaccount.html view
-router.get('/edit', function(req, res, next) {
+router.get('/edit', helpers.ensureAuthenticated, function(req, res, next) {
   queries.getUsers().where('user_id', req.user.user_id)
   .then(function(user) {
     console.log(user);
@@ -34,7 +34,7 @@ router.get('/edit', function(req, res, next) {
 });
 
 //Route to POST updated user information to the database and then redirect to the myaccount page
-router.post('/edit', function(req, res, next) {
+router.post('/edit', helpers.ensureAuthenticated, function(req, res, next) {
   var userInfo = req.body;
   var userId = req.user.user_id;
   queries.updateUser(userId, userInfo)
