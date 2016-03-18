@@ -93,3 +93,22 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .picked {
   color:red;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.customUpload {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.customUpload:hover {
+  background-color: rgb(3,175,0);
+  font-weight: 700;
+  border: 2px solid #ccc;
+  color: white;
+}
