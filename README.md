@@ -23,7 +23,8 @@ In order to see the interactive map and pick up and place pins, users will have 
 We followed the Agile methodology in our workflow. Mills handled database creation and most of the map, pin drop, and pick-up logic and Jon handled the front end styling, routes, views, and user authentication & authorization. We did not get to our goal of image upload using amazon s3 storage. We plan to get this implemented in the future.
 
 **A list of technologies we use, or plan to use in the future as the app is further developed:**  
-Google Maps API     
+Google Maps API  
+HTML5 Geolocation  
 JavaScript   
 Passport    
 PostgreSQL  
