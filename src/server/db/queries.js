@@ -17,7 +17,7 @@ module.exports = {
     pickupPin: function(pin_id, pin){
         return knex('pins').where('pin_id', pin_id).update(pin);
     },
-    //Returns the username of a the receiver
+    //Returns the username of the receiver
     getReceiverName: function(receiver_id){
         return knex.select('username').from('users').where('user_id', receiver_id);
     },

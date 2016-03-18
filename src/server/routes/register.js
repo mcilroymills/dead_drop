@@ -15,12 +15,12 @@ router.get('/', function(req, res, next) {
     var userEmail = req.body.email;
     var userPassword = req.body.password;
     var userName = req.body.username;
-    // check if email is unique
-    knex('users').where('email', userEmail)
+    // check if email and username is unique
+    knex('users').where('email', userEmail).orWhere({username: userName})
     .then(function(data) {
       // if email is not unique, send an error
       if (data.length) {
-        req.flash('regError', {status: 'danger', value: 'Email has been taken, try another email.'});
+        req.flash('regError', {status: 'danger', value: 'Email or username has been taken, try another.'});
         return res.redirect('/register');
       } else {
           // else insert email and password
@@ -28,7 +28,10 @@ router.get('/', function(req, res, next) {
           knex('users').insert({
           username: userName,
           email: userEmail,
-          password: hashedPassword
+          password: hashedPassword,
+          admin: false,
+          banned: false
+
       }).then(function(data) {
           req.flash('message', {status: 'success', value: 'Your account has been created successfully!'});
           return res.redirect('/login');
