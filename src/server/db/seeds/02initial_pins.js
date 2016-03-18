@@ -67,7 +67,7 @@ exports.seed = function(knex, Promise) {
     knex('pins').insert(
     {
         pin_title: 'Bunnies!',
-        pin_description: 'Scavenger hunt at City park! The bunnies all have $$$ inside! ',
+        pin_description: 'Scavenger hunt at City park! All bunnies have $$$ inside!',
         pin_image: '../images/uploads/bunnies.jpg',
         latitude: '39.746068080',
         longitude: '-104.953680038',
@@ -76,7 +76,7 @@ exports.seed = function(knex, Promise) {
         picked_up: true,
         dropper_id: 2,
         receiver_id: 3,
-        receiver_message: 'So much fun thank you!',
+        receiver_message: 'We had so much fun thank you!',
         receiver_image: '../images/uploads/bunnies_found.jpg'
     }),
     knex('pins').insert(
