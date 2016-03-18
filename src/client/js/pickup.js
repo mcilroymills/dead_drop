@@ -36,7 +36,7 @@ function initMap(pin) {
     for (var i = 0; i < pin.length; i++) {
       var latitude = parseFloat(pin[i].latitude);
       var longitude = parseFloat(pin[i].longitude);
-      var contentString = '<div class="content"><h3>'+ pin[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pin[i].pin_image + '"><br><br><p><strong>' + pin[i].pin_description + '</strong></p><p>Dropped by <a>' + pin[i].dropper + '</a></p></div>';
+      var contentString = '<div class="content"><h3>'+ pin[i].pin_title + '</h3><img alt="No image uploaded...be ready for a surprise!" src="' + pin[i].pin_image + '"><br><br><p><strong>' + pin[i].pin_description + '</strong></p><p>Dropped by <a>' + pin[i].username + '</a></p></div>';
 
       var marker = new google.maps.Marker({
         position: {lat: latitude, lng:longitude},
